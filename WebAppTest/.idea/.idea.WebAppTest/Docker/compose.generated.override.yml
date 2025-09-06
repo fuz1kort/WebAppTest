@@ -1,0 +1,20 @@
+# This is a generated file. Not intended for manual editing.
+services:
+  webapptest:
+    build:
+      context: "C:\\Users\\gafar\\source\\fuz1kort\\WebAppTest\\WebAppTest"
+      dockerfile: "WebAppTest.WebApi/Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net9.0/WebAppTest.WebApi.dll"
+    environment:
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "webapptest:dev"
+    ports: []
+    volumes:
+    - "C:\\Users\\gafar\\source\\fuz1kort\\WebAppTest\\WebAppTest\\WebAppTest.WebApi:/app:rw"
+    - "C:\\Users\\gafar\\source\\fuz1kort\\WebAppTest\\WebAppTest:/src:rw"
+    - "C:\\Users\\gafar\\.nuget\\packages:/home/app/.nuget/packages"
+    working_dir: "/app"

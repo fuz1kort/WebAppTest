@@ -1,0 +1,27 @@
+﻿services:
+  webapptest:
+    image: webapptest
+    build:
+      context: .
+      dockerfile: WebAppTest.WebApi/Dockerfile
+    depends_on:
+      - postgres
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__PostgreSQL=Host=postgres;Port=5432;Database=postgres;Username=postgres;Password=password
+    ports:
+      - "5000:8080"
+
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: postgres
+    ports:
+      - "54432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
